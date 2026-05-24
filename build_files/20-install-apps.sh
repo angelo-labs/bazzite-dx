@@ -38,17 +38,15 @@ dnf5 --setopt=install_weak_deps=False install -y \
     guestfs-tools
 
 # Restore UUPD update timer and Input Remapper
-sed -i 's@^NoDisplay=true@NoDisplay=false@' /usr/share/applications/input-remapper-gtk.desktop
-systemctl enable input-remapper.service
-systemctl enable uupd.timer
-
-# Remove -deck specific changes to allow for login screens and session selection in settings
-rm -f /etc/sddm.conf.d/steamos.conf
-rm -f /etc/sddm.conf.d/virtualkbd.conf
-rm -f /etc/sddm.conf.d/zz-steamos-autologin.conf
-rm -f /usr/share/gamescope-session-plus/bootstrap_steam.tar.gz
-systemctl disable bazzite-autologin.service
-dnf5 remove -y steamos-manager
+if [[ -f /usr/share/applications/input-remapper-gtk.desktop ]]; then
+    sed -i 's@^NoDisplay=true@NoDisplay=false@' /usr/share/applications/input-remapper-gtk.desktop
+fi
+if [[ -f /usr/lib/systemd/system/input-remapper.service ]]; then
+    systemctl enable input-remapper.service
+fi
+if [[ -f /usr/lib/systemd/system/uupd.timer ]]; then
+    systemctl enable uupd.timer
+fi
 
 if [[ "$IMAGE_NAME" == *gnome* ]]; then
     # Remove SDDM and re-enable GDM on GNOME builds.

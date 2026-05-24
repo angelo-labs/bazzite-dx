@@ -1,5 +1,5 @@
 images:
-  - name: bazzite-deck
-    image: ghcr.io/ublue-os/bazzite-deck
+  - name: bazzite-nvidia
+    image: ghcr.io/ublue-os/bazzite-nvidia
     tag: stable
-    digest: sha256:650e55225942a7bc920cdc30aacfd5766e7e141a9661f3628a38e9e91b4556b5
+    digest: sha256:bf99b0d893795baca379579756872cf4d04d7df003c68ddc48f6dc20da94a3f5

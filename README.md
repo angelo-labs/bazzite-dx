@@ -8,37 +8,10 @@ This is just bazzite, but with extra developer-specific tooling, aiming to match
 
 ## Installation
 
-To rebase an existing Bazzite installation to Bazzite DX, use one of the following commands based on your current variant:
-
-**For KDE Plasma (default Bazzite):**
-```bash
-brh rebase bazzite-dx:stable
-```
-
-**For GNOME:**
-```bash
-brh rebase bazzite-dx-gnome:stable
-```
-
-### NVIDIA Variants
-
-**For KDE Plasma with NVIDIA:**
+To rebase an existing Bazzite NVIDIA installation to Bazzite DX, use:
 ```bash
 brh rebase bazzite-dx-nvidia:stable
 ```
-
-**For GNOME with NVIDIA:**
-```bash
-brh rebase bazzite-dx-nvidia-gnome:stable
-```
-
-### ⚠️ Important Desktop Environment Warning
-
-**Do not switch between GNOME and KDE variants!** If you are currently running:
-- **GNOME** (bazzite-gnome*): Only use the `-gnome` variants above
-- **KDE Plasma** (standard bazzite): Only use the variants without `-gnome` in the name
-
-Switching between desktop environments via rebase can break your installation and may require a complete reinstall.
 
 After running the rebase command, reboot your system to complete the installation. 
 
