@@ -8,12 +8,17 @@ This is just bazzite, but with extra developer-specific tooling, aiming to match
 
 ## Installation
 
-To rebase an existing Bazzite NVIDIA installation to Bazzite DX, use:
+To rebase an existing Bazzite NVIDIA installation to Bazzite DX for the first time, use:
 ```bash
-brh rebase bazzite-dx-nvidia:stable
+brh rebase ostree-unverified-registry:ghcr.io/angelo-labs/bazzite-dx-nvidia:stable
 ```
 
-After running the rebase command, reboot your system to complete the installation. 
+After rebooting into Bazzite DX, the image includes this repo's signing key. Future rebases can use the signed image reference:
+```bash
+brh rebase ostree-image-signed:docker://ghcr.io/angelo-labs/bazzite-dx-nvidia:stable
+```
+
+After running a rebase command, reboot your system to complete the installation. 
 
 ## Acknowledgments
 
